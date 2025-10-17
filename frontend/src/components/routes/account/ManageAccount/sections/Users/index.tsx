@@ -64,7 +64,6 @@ const Users = () => {
             case 'ACTIVE':
                 return '';
             case 'INVITED':
-                return 'orange';
             case 'INACTIVE':
                 return 'red';
             default:

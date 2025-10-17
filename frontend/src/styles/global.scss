@@ -3,7 +3,7 @@
 :root {
   --hi-text: var(--mantine-color-primary-9);
   --hi-primary: var(--mantine-color-primary-9);
-  --hi-secondary:  var(--mantine-color-secondary-1);
+  --hi-secondary: var(--mantine-color-secondary-1);
   --hi-secondary-text: var(--mantine-color-primary-8);
   --hi-color-gray: #f7f6f8;
   --hi-color-gray-2: #e2e2e2;
@@ -40,11 +40,52 @@ html {
   height: auto;
 }
 
+@font-face {
+  font-family: Circular-STD;
+  src: url("/fonts/Circular-STD/CircularStd-Book.ttf");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: Circular-STD;
+  src: url("/fonts/Circular-STD/CircularStd-Book.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Circular-STD;
+  src: url("/fonts/Circular-STD/CircularStd-Medium.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: Circular-STD;
+  src: url("/fonts/Circular-STD/CircularStd-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Circular-STD;
+  src: url("/fonts/Circular-STD/CircularStd-Black.ttf");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: GD-Boing;
+  src: url("/fonts/GD-Boing/GD-Boing-Bold.ttf");
+  font-weight: 700;
+}
+
 body {
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Circular-STD', sans-serif;
   color: var(--hi-text);
   background-color: var(--hi-color-gray) !important;
   height: auto;
+}
+
+.gd-boing {
+  font-family: 'GD-Boing', sans-serif !important;
+  font-weight: 700;
 }
 
 fieldset {
@@ -58,7 +99,8 @@ a {
 }
 
 // Mantine overrides
-.mantine-InputWrapper-root, .mantine-Switch-root {
+.mantine-InputWrapper-root,
+.mantine-Switch-root {
   margin-bottom: var(--hi-spacing-lg);
 }
 
@@ -71,7 +113,9 @@ a {
 }
 
 .mantine-SimpleGrid-root {
-  .mantine-InputWrapper-root, .mantine-Switch-root {
+
+  .mantine-InputWrapper-root,
+  .mantine-Switch-root {
     //margin-bottom: 0;
   }
 }

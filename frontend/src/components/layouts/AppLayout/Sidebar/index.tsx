@@ -1,13 +1,13 @@
 import React from "react";
-import {Badge, UnstyledButton, VisuallyHidden} from '@mantine/core';
-import {IconChevronLeft} from "@tabler/icons-react";
-import {t} from "@lingui/macro";
+import { Badge, UnstyledButton, VisuallyHidden } from '@mantine/core';
+import { IconChevronLeft } from "@tabler/icons-react";
+import { t } from "@lingui/macro";
 import classes from './Sidebar.module.scss';
-import {NavItem} from "../types";
-import {NavLink} from "react-router";
+import { NavItem } from "../types";
+import { NavLink } from "react-router";
 import classNames from "classnames";
-import {useMediaQuery} from "@mantine/hooks";
-import {getConfig} from "../../../../utilites/config.ts";
+import { useMediaQuery } from "@mantine/hooks";
+import { getConfig } from "../../../../utilites/config.ts";
 
 interface SidebarProps {
     sidebarOpen: boolean;
@@ -17,11 +17,11 @@ interface SidebarProps {
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
-                                                    sidebarOpen,
-                                                    setSidebarOpen,
-                                                    navItems,
-                                                    sidebarFooter,
-                                                }) => {
+    sidebarOpen,
+    setSidebarOpen,
+    navItems,
+    sidebarFooter,
+}) => {
     const renderLinks = () => {
         return navItems.map((item) => {
             const isMobile = useMediaQuery('(max-width: 768px)');
@@ -53,13 +53,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         }
                         if (item.onClick) item.onClick();
                     }}
-                    className={({isActive}) =>
+                    className={({ isActive }) =>
                         `${((item.isActive ? item.isActive(isActive) : isActive) && !item.comingSoon)
                             ? classes.linkActive
                             : ""} ${classes.link}`
                     }
                 >
-                    {item.icon && <item.icon size={20} className={classes.linkIcon} stroke={1.5}/>}
+                    {item.icon && <item.icon size={20} className={classes.linkIcon} stroke={1.5} />}
                     <span>{item.label}</span>
                     {item.badge !== undefined &&
                         <Badge size="xs" radius="xl" className={classes.navBadge}>{item.badge}</Badge>}
@@ -75,9 +75,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <div className={classes.logo}>
                 <NavLink to={`/manage/events`}>
                     <img
-                        style={{maxWidth: '160px', margin: "10px auto"}}
-                        src={getConfig("VITE_APP_LOGO_LIGHT", "/logo-wide-white-text.svg")}
-                        alt={t`${getConfig("VITE_APP_NAME", "Hi.Events")} logo`}
+                        style={{ maxWidth: '160px', margin: "10px auto" }}
+                        src={getConfig("VITE_APP_LOGO_LIGHT", "/p-up-logo-4-white.svg")}
+                        alt={t`${getConfig("VITE_APP_NAME", "StageIQ")} logo`}
                     />
                 </NavLink>
             </div>
@@ -93,7 +93,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 <UnstyledButton
                     className={classes.sidebarClose}
                     onClick={() => setSidebarOpen(!sidebarOpen)}>
-                    <IconChevronLeft size={20}/>
+                    <IconChevronLeft size={20} />
                     <VisuallyHidden>{t`Close sidebar`}</VisuallyHidden>
                 </UnstyledButton>
             )}

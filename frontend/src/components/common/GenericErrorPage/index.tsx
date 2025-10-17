@@ -1,10 +1,10 @@
 import React from 'react';
-import {Box, Button, Container, Image, rem, Stack, Text, Title} from '@mantine/core';
-import {IconHome} from '@tabler/icons-react';
+import { Box, Button, Container, Image, rem, Stack, Text, Title } from '@mantine/core';
+import { IconHome } from '@tabler/icons-react';
 import classes from './GenericErrorPage.module.scss';
-import {PoweredByFooter} from "../PoweredByFooter";
-import {Helmet} from "react-helmet-async";
-import {getConfig} from "../../../utilites/config.ts";
+import { PoweredByFooter } from "../PoweredByFooter";
+import { Helmet } from "react-helmet-async";
+import { getConfig } from "../../../utilites/config.ts";
 
 interface GenericErrorPageProps {
     title: string;
@@ -18,15 +18,15 @@ interface GenericErrorPageProps {
 }
 
 export const GenericErrorPage: React.FC<GenericErrorPageProps> = ({
-                                                                      title,
-                                                                      description,
-                                                                      pageTitle,
-                                                                      metaDescription,
-                                                                      buttonText,
-                                                                      buttonUrl,
-                                                                      buttonIcon = <IconHome size={18}/>,
-                                                                      children
-                                                                  }) => {
+    title,
+    description,
+    pageTitle,
+    metaDescription,
+    buttonText,
+    buttonUrl,
+    buttonIcon = <IconHome size={18} />,
+    children
+}) => {
     return (
         <>
             <Helmet
@@ -40,15 +40,15 @@ export const GenericErrorPage: React.FC<GenericErrorPageProps> = ({
             />
             <Box className={classes.wrapper}>
                 {/* Animated background elements */}
-                <div className={classes.backgroundOrb1}/>
-                <div className={classes.backgroundOrb2}/>
+                <div className={classes.backgroundOrb1} />
+                <div className={classes.backgroundOrb2} />
 
                 <Container size="md" className={classes.root}>
                     <Stack gap="xl" align="center">
 
                         <Image
-                            src={getConfig("VITE_APP_LOGO_DARK", "/logo-dark.svg")}
-                            alt={getConfig("VITE_APP_NAME", "Hi.Events") + " Logo"}
+                            src={getConfig("VITE_APP_LOGO_DARK", "/p-up-logo-4.svg")}
+                            alt={getConfig("VITE_APP_NAME", "StageIQ") + " Logo"}
                             w={rem(140)}
                             h="auto"
                             fit="contain"
@@ -72,7 +72,7 @@ export const GenericErrorPage: React.FC<GenericErrorPageProps> = ({
                                     href={buttonUrl}
                                     leftSection={buttonIcon}
                                     variant="gradient"
-                                    gradient={{from: 'purple', to: 'pink'}}
+                                    gradient={{ from: 'purple', to: 'pink' }}
                                     className={classes.button}
                                 >
                                     {buttonText}
@@ -80,7 +80,7 @@ export const GenericErrorPage: React.FC<GenericErrorPageProps> = ({
                             )}
                         </Stack>
 
-                        <PoweredByFooter/>
+                        <PoweredByFooter />
                     </Stack>
                 </Container>
             </Box>

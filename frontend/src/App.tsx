@@ -79,10 +79,10 @@ export const App: FC<
                                 <ThirdPartyScripts/>
                                 <ModalsProvider>
                                     <Helmet>
-                                        <title>{getConfig("VITE_APP_NAME", "Hi.Events")}</title>
+                                        <title>{getConfig("VITE_APP_NAME", "StageIQ")}</title>
                                         <link rel="icon"
                                               type="image/svg+xml"
-                                              href={getConfig("VITE_APP_FAVICON", "/favicon.svg")}
+                                              href={getConfig("VITE_APP_FAVICON", "/p-up-logo-4-white.svg")}
                                         />
                                     </Helmet>
                                     {props.children}

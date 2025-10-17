@@ -1,15 +1,15 @@
-import {t} from "@lingui/macro";
+import { t } from "@lingui/macro";
 import classes from "./FloatingPoweredBy.module.scss";
 import classNames from "classnames";
 import React from "react";
-import {iHavePurchasedALicence, isHiEvents} from "../../../utilites/helpers.ts";
+import { iHavePurchasedALicence, isHiEvents } from "../../../utilites/helpers.ts";
 
 /**
- * (c) Hi.Events Ltd 2025
+ * (c) StageIQ Ltd 2025
  *
  * PLEASE NOTE:
  *
- * Hi.Events is licensed under the GNU Affero General Public License (AGPL) version 3.
+ * StageIQ is licensed under the GNU Affero General Public License (AGPL) version 3.
  *
  * You can find the full license text at: https://github.com/HiEventsDev/hi.events/blob/main/LICENCE
  *
@@ -22,31 +22,32 @@ export const PoweredByFooter = (props: React.DetailedHTMLProps<React.HTMLAttribu
         return <></>;
     }
 
-    const footerContent = isHiEvents() ? (
-        <>
-            {t`Planning an event?`} {' '}
-            <a href="https://hi.events?utm_source=app-powered-by-footer&utm_content=try-hi-events-free"
-               target="_blank"
-               className={classes.ctaLink}
-               title={'Effortlessly manage events and sell tickets online with Hi.Events'}>
-                {t`Try Hi.Events Free`}
-            </a>
-        </>
-    ) : (
-        <>
-            {t`Powered by`} {' '}
-            <a href="https://hi.events?utm_source=app-powered-by-footer"
-               target="_blank"
-               title={'Effortlessly manage events and sell tickets online with Hi.Events'}>
-                Hi.Events
-            </a> 🚀
-        </>
-    );
+    // const footerContent = isHiEvents() ? (
+    //     <>
+    //         {t`Planning an event?`} {' '}
+    //         <a href="https://hi.events?utm_source=app-powered-by-footer&utm_content=try-hi-events-free"
+    //             target="_blank"
+    //             className={classes.ctaLink}
+    //             title={'Effortlessly manage events and sell tickets online with StageIQ'}>
+    //             {t`Try StageIQ Free`}
+    //         </a>
+    //     </>
+    // ) : (
+    //     <>
+    //         {t`Powered by`} {' '}
+    //         <a href="https://hi.events?utm_source=app-powered-by-footer"
+    //             target="_blank"
+    //             className="gd-boing"
+    //             title={'Effortlessly manage events and sell tickets online with StageIQ'}>
+    //             StageIQ
+    //         </a> 🚀
+    //     </>
+    // );
 
     return (
         <div {...props} className={classNames(classes.poweredBy, props.className)}>
             <div className={classes.poweredByText}>
-                {footerContent}
+                {/* {footerContent} */}
             </div>
         </div>
     );

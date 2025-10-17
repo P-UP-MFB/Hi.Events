@@ -129,8 +129,9 @@ const AuthLayout = () => {
             <div className={classes.splitLayout}>
                 <div className={classes.leftPanel}>
                     <main className={classes.container}>
-                        <div className={classes.logo}>
-                            <img src={getConfig("VITE_APP_LOGO_DARK", "/logo-dark.svg")} alt={t`${getConfig("VITE_APP_NAME", "Hi.Events")} logo`}/>
+                        <div className={`${classes.logo} gd-boing`}>
+                            <img src={getConfig("VITE_APP_LOGO_DARK", "/p-up-logo-4.svg")} alt={t`${getConfig("VITE_APP_NAME", "StageIQ")} logo`} style={{width:30, height:50}} />
+                            StageIQ
                         </div>
                         <div className={classes.wrapper}>
                             <Outlet/>
