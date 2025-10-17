@@ -5,28 +5,28 @@ import { useGetMe } from "./queries/useGetMe.ts";
 import { publicEventRouteLoader } from "./routeLoaders/publicEventRouteLoader.ts";
 import { publicOrganizerRouteLoader } from "./routeLoaders/publicOrganizerRouteLoader.ts";
 
-// const Root = () => {
-//     const [redirectPath, setRedirectPath] = useState<string | null>(null);
-//     const me = useGetMe();
-
-//     useEffect(() => {
-//         if (me.isFetched) {
-//             setRedirectPath(me.isSuccess ? "/manage/events" : "/auth/login");
-//         }
-//     }, [me.isFetched]);
-
-//     if (redirectPath) {
-//         return <Navigate to={redirectPath} replace={true}/>;
-//     }
-// };
-
 const Root = () => {
+    const [redirectPath, setRedirectPath] = useState<string | null>(null);
     const me = useGetMe();
 
-    if (!me.isFetched) return null;
+    useEffect(() => {
+        if (me.isFetched) {
+            setRedirectPath(me.isSuccess ? "/manage/events" : "/auth/login");
+        }
+    }, [me.isFetched]);
 
-    return <Navigate to={me.isSuccess ? "/manage/events" : "/welcome"} replace />;
+    if (redirectPath) {
+        return <Navigate to={redirectPath} replace={true}/>;
+    }
 };
+
+// const Root = () => {
+//     const me = useGetMe();
+
+//     if (!me.isFetched) return null;
+
+//     return <Navigate to={me.isSuccess ? "/manage/events" : "/welcome"} replace />;
+// };
 
 export const router: RouteObject[] = [
     {
