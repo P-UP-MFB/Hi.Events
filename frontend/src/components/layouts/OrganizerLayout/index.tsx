@@ -38,6 +38,7 @@ import {confirmationDialog} from "../../../utilites/confirmationDialog.tsx";
 import {showError, showSuccess} from "../../../utilites/notifications.tsx";
 import {useResendEmailConfirmation} from "../../../mutations/useResendEmailConfirmation.ts";
 import {useGetMe} from "../../../queries/useGetMe.ts";
+import PuP_Img from '/p-up-logo-4.svg';
 
 const OrganizerLayout = () => {
     const {organizerId} = useParams();
@@ -164,8 +165,8 @@ const OrganizerLayout = () => {
 
     if (account && !account?.stripe_connect_setup_complete) {
         callouts.unshift({
-            icon: <IconBrandStripe size={20}/>,
-            heading: t`Connect Stripe`,
+            icon: <PuP_Img />,
+            heading: t`Connect BaaSey`,
             description: t`Connect your Stripe account to accept payments for tickets and products.`,
             storageKey: `stripe-callout-dismissed`,
             customButton:
@@ -173,7 +174,7 @@ const OrganizerLayout = () => {
                     fullWidth
                     variant="white"
                     buttonIcon={<IconCreditCard size={16}/>}
-                    buttonText={t`Connect Stripe`}
+                    buttonText={t`Connect BaaSey`}
                     className={classes.calloutButton}
                 />
         });
