@@ -180,7 +180,7 @@ const ConnectStatus = ({account}: { account: Account }) => {
             ) : (
                 <>
                     <Text size="sm" c="dimmed" mb="lg">
-                        {t`To receive credit card payments, you need to connect your Stripe account. Stripe is our payment processing partner that ensures secure transactions and timely payouts.`}
+                        {t`To receive credit card payments, you need to connect your BaaSey account. Stripe is our payment processing partner that ensures secure transactions and timely payouts.`}
                     </Text>
                     <Group gap="md">
                         <Button

@@ -166,7 +166,7 @@ const OrganizerLayout = () => {
         callouts.unshift({
             icon: <img src="/p-up-logo-4.svg" alt="BaaSey Logo" style={{ width: 20, height: 20 }} />,
             heading: t`Connect BaaSey`,
-            description: t`Connect your Stripe account to accept payments for tickets and products.`,
+            description: t`Connect your BaaSey account to accept payments for tickets and products.`,
             storageKey: `stripe-callout-dismissed`,
             customButton:
                 <StripeConnectButton
