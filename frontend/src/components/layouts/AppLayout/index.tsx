@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from "react";
-import {Outlet} from "react-router";
+import React, { useEffect, useState } from "react";
+import { Outlet } from "react-router";
 import classes from './AppLayout.module.scss';
-import {Topbar} from "./Topbar";
-import {Sidebar} from "./Sidebar";
-import {BreadcrumbItem, NavItem} from "./types.ts";
-import {IconLayoutSidebar} from "@tabler/icons-react";
-import {UnstyledButton, VisuallyHidden} from "@mantine/core";
-import {t} from "@lingui/macro";
+import { Topbar } from "./Topbar";
+import { Sidebar } from "./Sidebar";
+import { BreadcrumbItem, NavItem } from "./types.ts";
+import { IconLayoutSidebar } from "@tabler/icons-react";
+import { UnstyledButton, VisuallyHidden } from "@mantine/core";
+import { t } from "@lingui/macro";
 
 interface AppLayoutProps {
     navItems: NavItem[];
@@ -23,7 +23,7 @@ interface SidebarToggleButtonProps {
     onClick: () => void;
 }
 
-const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = ({open, onClick}) => {
+const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = ({ open, onClick }) => {
     const Icon = IconLayoutSidebar;
     const label = t`Open sidebar`;
 
@@ -32,21 +32,21 @@ const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = ({open, onClick}
             className={open ? classes.sidebarOpen : classes.sidebarClose}
             onClick={onClick}
         >
-            <Icon size={16}/>
+            <Icon size={16} />
             <VisuallyHidden>{label}</VisuallyHidden>
         </UnstyledButton>
     );
 };
 
 const AppLayout: React.FC<AppLayoutProps> = ({
-                                                 navItems,
-                                                 breadcrumbItems,
-                                                 entityType,
-                                                 topBarContent = null,
-                                                 breadcrumbContentRight = null,
-                                                 actionGroupContent = null,
-                                                 sidebarFooter = null,
-                                             }) => {
+    navItems,
+    breadcrumbItems,
+    entityType,
+    topBarContent = null,
+    breadcrumbContentRight = null,
+    actionGroupContent = null,
+    sidebarFooter = null,
+}) => {
     const [sidebarOpen, setSidebarOpen] = useState<boolean>(() => {
         if (typeof window === 'undefined') return true; // SSR default
         return window.innerWidth >= 768; // Desktop open, mobile closed
@@ -79,7 +79,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({
 
     return (
         <div id={`${entityType}-manage-container`}
-             className={`${classes.container} ${sidebarOpen ? classes.open : classes.closed}`}>
+            className={`${classes.container} ${sidebarOpen ? classes.open : classes.closed}`}>
             <Topbar
                 sidebarOpen={sidebarOpen}
                 setSidebarOpen={setSidebarOpen}
@@ -91,7 +91,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({
             />
 
             <div className={classes.main} id={'app-manage-main'}>
-                <Outlet/>
+                <Outlet />
             </div>
 
             <Sidebar

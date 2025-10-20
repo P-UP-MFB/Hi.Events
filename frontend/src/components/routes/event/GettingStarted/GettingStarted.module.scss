@@ -65,6 +65,7 @@
   color: #1a1a2e;
   margin: 0;
   line-height: 1.2;
+  font-family: GD-Boing;
 
   @include mixins.respond-below(sm) {
     font-size: 24px;
@@ -176,6 +177,7 @@
       font-size: 18px;
       font-weight: 600;
       color: #1a1a2e;
+      font-family: GD-Boing;
     }
 
     p {

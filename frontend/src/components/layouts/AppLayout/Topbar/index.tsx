@@ -1,10 +1,10 @@
 import React from "react";
-import {NavLink} from "react-router";
-import {Breadcrumbs, Burger} from '@mantine/core';
-import {IconHome} from "@tabler/icons-react";
+import { NavLink } from "react-router";
+import { Breadcrumbs, Burger } from '@mantine/core';
+import { IconHome } from "@tabler/icons-react";
 import classes from './Topbar.module.scss';
-import {BreadcrumbItem} from "../types";
-import {GlobalMenu} from "../../../common/GlobalMenu";
+import { BreadcrumbItem } from "../types";
+import { GlobalMenu } from "../../../common/GlobalMenu";
 
 interface TopbarProps {
     sidebarOpen: boolean;
@@ -17,14 +17,14 @@ interface TopbarProps {
 }
 
 export const Topbar: React.FC<TopbarProps> = ({
-                                                  sidebarOpen,
-                                                  setSidebarOpen,
-                                                  topBarShadow,
-                                                  breadcrumbItems,
-                                                  topBarContent = null,
-                                                  breadcrumbContentRight = null,
-                                                  actionGroupContent = null,
-                                              }) => {
+    sidebarOpen,
+    setSidebarOpen,
+    topBarShadow,
+    breadcrumbItems,
+    topBarContent = null,
+    breadcrumbContentRight = null,
+    actionGroupContent = null,
+}) => {
     return (
         <div className={`${classes.topBar} ${topBarShadow ? classes.withShadow : ''}`}>
             <div className={classes.topBarMain}>
@@ -38,7 +38,7 @@ export const Topbar: React.FC<TopbarProps> = ({
                 </div>
                 <div className={classes.logo}>
                     <NavLink to={`/manage/events`}>
-                        <img src={'/p-up-logo-4.svg'} alt={'StageIQ'} style={{width:30, height:70}}/>
+                        <img src={'/p-up-logo-4.svg'} alt={'StageIQ'} style={{ width: 30, height: 70 }} />
                     </NavLink>
                 </div>
 
@@ -47,15 +47,15 @@ export const Topbar: React.FC<TopbarProps> = ({
                     {actionGroupContent}
 
                     <div className={classes.menu}>
-                        <GlobalMenu/>
+                        <GlobalMenu />
                     </div>
                 </div>
             </div>
 
             <div className={classes.breadcrumbsRow}>
                 <div className={classes.breadcrumbs}>
-                    <IconHome size={16} style={{marginRight: '8px', opacity: 0.6, minWidth: '16px'}}/>
-                    <Breadcrumbs separator={<span style={{margin: '0 0px', color: '#aaa'}}>/</span>}>
+                    <IconHome size={16} style={{ marginRight: '8px', opacity: 0.6, minWidth: '16px' }} />
+                    <Breadcrumbs separator={<span style={{ margin: '0 0px', color: '#aaa' }}>/</span>}>
                         {breadcrumbItems.map((item, index) => (
                             <NavLink key={index} to={item.link}>
                                 {item.content}

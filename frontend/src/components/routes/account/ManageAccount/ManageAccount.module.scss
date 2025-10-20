@@ -4,6 +4,10 @@
     box-shadow: none;
   }
 
+  h1 {
+    font-family: GD-Boing;
+  }
+
   .tabWrapper {
     position: relative;
     margin-bottom: var(--hi-spacing-lg);
@@ -36,4 +40,3 @@
     font-size: 0.9em;
   }
 }
-
