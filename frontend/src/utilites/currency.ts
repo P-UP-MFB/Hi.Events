@@ -271,43 +271,6 @@ const euroZoneCountries = [
 ] as const;
 
 export const getUserCurrency = (): CurrencyCode => {
-    if (typeof window === 'undefined') return 'USD';
-
-    try {
-        const userLocales = [
-            // Primary: Full user locale (e.g., 'en-US')
-            navigator.language,
-            // Secondary: Browser locales if available
-            ...(navigator.languages || []),
-            // Tertiary: Language-only portion of primary locale (e.g., 'en')
-            navigator.language.split('-')[0]
-        ];
-
-        // Try each locale in order until we find a match
-        for (const locale of userLocales) {
-            const currency = currencyByLocale[locale];
-            if (currency) {
-                return currency;
-            }
-        }
-
-        // If no direct match, try matching just the language part
-        const languageOnly = navigator.language.split('-')[0];
-        const languageCurrency = currencyByLocale[languageOnly];
-        if (languageCurrency) {
-            return languageCurrency;
-        }
-
-        // Check if it's a Euro country by region code
-        const region = navigator.language.split('-')[1];
-        if (region && euroZoneCountries.includes(region as typeof euroZoneCountries[number])) {
-            return 'EUR';
-        }
-
-        // Default to USD if no match found
-        return 'USD';
-    } catch (error) {
-        // Fallback to USD if anything goes wrong
-        return 'USD';
-    }
+    // Always return NGN (Nigerian Naira) as the default currency
+    return 'NGN';
 };
