@@ -43,13 +43,13 @@ jobs:
       - name: Deploy to Digital Ocean Droplet 1
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.DROPLET_HOST_1 }}
+          host: ${{ secrets.DO_HOST }}
           username: root
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.DO_SSH_KEYS }}
           script: |
             cd /root/HiEvents
             # Login to GitHub Container Registry
-            echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+            echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             
             # Pull the latest image
             docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
@@ -73,11 +73,11 @@ jobs:
         with:
           host: ${{ secrets.DROPLET_HOST_2 }}
           username: root
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.DO_SSH_KEYS }}
           script: |
             cd /root/HiEvents
             # Login to GitHub Container Registry
-            echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+            echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             
             # Pull the latest image
             docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
