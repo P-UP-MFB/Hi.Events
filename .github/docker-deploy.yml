@@ -76,7 +76,7 @@ jobs:
           key: ${{ secrets.DO_SSH_KEYS }}
           script: |
             cd /root/HiEvents
-            # Login to GitHub Container Registry
+            # Login to GitHub Container Regist
             echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             
             # Pull the latest image
