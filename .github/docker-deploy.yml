@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - stageIQ/fixes
-
+  workflow_dispatch:
+  
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}-all-in-one
