@@ -45,7 +45,7 @@ export const StripePaymentMethod = ({enabled, setSubmitHandler}: StripePaymentMe
         return (
             <CheckoutContent>
                 <HomepageInfoMessage
-                    message={t`Stripe payments are not enabled for this event.`}
+                    message={t`P-UP BaaSey payments are not enabled for this event.`}
                     link={eventHomepagePath(event as Event)}
                     linkText={t`Return to event page`}
                 />

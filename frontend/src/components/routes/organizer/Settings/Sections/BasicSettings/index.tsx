@@ -26,8 +26,8 @@ const Settings = () => {
             phone: '',
             website: '',
             description: '',
-            currency: '',
-            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            currency: 'NGN',
+            timezone: 'Africa/Lagos',
         }
     });
 
@@ -49,7 +49,7 @@ const Settings = () => {
         form.setValues({
             name: String(organizer?.name),
             email: String(organizer?.email),
-            currency: String(organizer?.currency),
+            currency: 'NGN', // Always force NGN as the currency
             timezone: String(organizer?.timezone),
             phone: String(organizer?.phone || ''),
             website: String(organizer?.website || ''),
@@ -109,12 +109,12 @@ const Settings = () => {
                             {...form.getInputProps('currency')}
                             searchable
                             required
-                            data={Object.entries(currencies).map(([key, value]) => ({
-                                value: value,
-                                label: key,
-                            }))}
+                            data={[{
+                                value: 'NGN',
+                                label: 'Nigerian Naira',
+                            }]}
                             label={t`Currency`}
-                            placeholder={t`EUR`}
+                            placeholder={t`Nigerian Naira`}
                             description={t`The default currency for your events.`}
                         />
                         <Select
@@ -123,7 +123,7 @@ const Settings = () => {
                             required
                             data={timezones}
                             label={t`Timezone`}
-                            placeholder={t`UTC`}
+                            placeholder={t`Africa/Lagos`}
                             description={t`The default timezone for your events.`}
                         />
                     </InputGroup>

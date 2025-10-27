@@ -17,7 +17,7 @@ interface StripeConnectButtonProps {
 
 export const StripeConnectButton: React.FC<StripeConnectButtonProps> = ({
     buttonText,
-    buttonIcon = <IconBrandStripe size={20} />,
+    buttonIcon = <img style={{ height: 20, width: 20 }} src="/p-up-logo.svg" />,
     variant = 'light',
     size = 'sm',
     fullWidth = false,
@@ -27,7 +27,7 @@ export const StripeConnectButton: React.FC<StripeConnectButtonProps> = ({
     const [isReturningFromStripe, setIsReturningFromStripe] = useState(false);
     const accountQuery = useGetAccount();
     const account = accountQuery.data;
-    
+
     const stripeDetailsQuery = useCreateOrGetStripeConnectDetails(
         account?.id || '',
         (!!account?.stripe_account_id || fetchStripeDetails) && !!account?.id
@@ -40,7 +40,7 @@ export const StripeConnectButton: React.FC<StripeConnectButtonProps> = ({
             return;
         }
         setIsReturningFromStripe(
-            window.location.search.includes('is_return') || 
+            window.location.search.includes('is_return') ||
             window.location.search.includes('is_refresh')
         );
     }, []);
@@ -48,7 +48,7 @@ export const StripeConnectButton: React.FC<StripeConnectButtonProps> = ({
     useEffect(() => {
         if (fetchStripeDetails && !stripeDetailsQuery.isLoading && stripeDetails) {
             setFetchStripeDetails(false);
-            showSuccess(t`Redirecting to Stripe...`);
+            showSuccess(t`Redirecting to P-UP BaaSey...`);
             window.location.href = String(stripeDetails.connect_url);
         }
     }, [fetchStripeDetails, stripeDetailsQuery.isLoading, stripeDetails]);
@@ -58,12 +58,12 @@ export const StripeConnectButton: React.FC<StripeConnectButtonProps> = ({
             setFetchStripeDetails(true);
         } else {
             if (stripeDetails.is_connect_setup_complete) {
-                showSuccess(t`Stripe setup is already complete.`);
+                showSuccess(t`P-UP BaaSey setup is already complete.`);
                 return;
             }
 
             if (typeof window !== 'undefined') {
-                showSuccess(t`Redirecting to Stripe...`);
+                showSuccess(t`Redirecting to P-UP BaaSey...`);
                 window.location.href = String(stripeDetails.connect_url);
             }
         }
@@ -72,11 +72,11 @@ export const StripeConnectButton: React.FC<StripeConnectButtonProps> = ({
     // Determine button text
     const getButtonText = () => {
         if (buttonText) return buttonText;
-        
+
         if (!isReturningFromStripe && !account?.stripe_account_id) {
-            return t`Connect with Stripe`;
+            return t`Connect with P-UP BaaSey`;
         }
-        return t`Complete Stripe Setup`;
+        return t`Complete P-UP BaaSey Setup`;
     };
 
     return (

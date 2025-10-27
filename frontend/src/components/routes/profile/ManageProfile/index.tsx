@@ -170,7 +170,7 @@ export const ManageProfile = () => {
                                         }))}
                                         {...profileForm.getInputProps('locale')}
                                         label={t`Language`}
-                                        placeholder={t`English`}
+                                        placeholder={t`Select language`}
                                     />
 
                                     <Button fullWidth loading={mutation.isPending}

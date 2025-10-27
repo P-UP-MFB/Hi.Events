@@ -42,12 +42,12 @@ export const OrganizerForm = ({form}: { form: UseFormReturnType<Partial<Organize
                     {...form.getInputProps('currency')}
                     searchable
                     required
-                    data={Object.entries(currencies).map(([key, value]) => ({
-                        value: value,
-                        label: `${key} (${value})`,
-                    }))}
+                    data={[{
+                        value: 'NGN',
+                        label: 'Nigerian Naira (NGN)',
+                    }]}
                     label={t`Currency`}
-                    placeholder={t`Select currency`}
+                    placeholder={t`Nigerian Naira`}
                     size="lg"
                 />
                 <Select
@@ -72,7 +72,7 @@ export const OrganizerCreateForm = ({onSuccess, onCancel}: OrganizerFormProps) =
         initialValues: {
             name: '',
             email: '',
-            currency: '',
+            currency: 'NGN',
             timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
         }
     });
@@ -94,7 +94,7 @@ export const OrganizerCreateForm = ({onSuccess, onCancel}: OrganizerFormProps) =
 
     useEffect(() => {
         if (meFetched) {
-            form.setFieldValue('currency', String(account?.currency_code));
+            form.setFieldValue('currency', 'NGN'); // Always force NGN as the currency
         }
         if (accountFetched) {
             form.setFieldValue('name', String(account?.name));

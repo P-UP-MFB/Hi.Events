@@ -90,7 +90,7 @@ export const EventDashboard = () => {
 
     return (
         <PageBody>
-            <PageTitle style={{marginBottom: 0}}>
+            <PageTitle style={{marginBottom: 0,}}>
                 {!isMobile && (
                     <Trans>
                         Welcome back{me?.first_name && ', ' + me?.first_name} 👋
@@ -191,7 +191,7 @@ export const EventDashboard = () => {
                                             </div>
                                             {t`Connect payment processing`}
                                         </h3>
-                                        <p>{t`Link your Stripe account to receive funds from ticket sales.`}</p>
+                                        <p>{t`Link your P-UP BaaSey account to receive funds from ticket sales.`}</p>
                                         {!account?.stripe_connect_setup_complete && (
                                             <Button
                                                 onClick={() => {
@@ -202,7 +202,7 @@ export const EventDashboard = () => {
                                                 radius="md"
                                                 fullWidth
                                             >
-                                                {account?.stripe_account_id ? t`Complete Stripe Setup` : t`Connect to Stripe`}
+                                                {account?.stripe_account_id ? t`Complete P-UP BaaSey Setup` : t`Connect to P-UP BaaSey`}
                                             </Button>
                                         )}
                                     </div>

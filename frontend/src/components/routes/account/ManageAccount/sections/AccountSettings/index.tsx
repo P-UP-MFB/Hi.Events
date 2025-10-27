@@ -19,8 +19,8 @@ const AccountSettings = () => {
     const form = useForm({
         initialValues: {
             name: '',
-            currency_code: '',
-            timezone: '',
+            currency_code: 'NGN',
+            timezone: 'Africa/Lagos',
         }
     });
     const accountQuery = useGetAccount();
@@ -30,7 +30,10 @@ const AccountSettings = () => {
 
     useEffect(() => {
         if (accountQuery.data) {
-            form.setValues(accountQuery.data);
+            form.setValues({
+                ...accountQuery.data,
+                currency_code: 'NGN', // Always force NGN as the currency
+            });
         }
     }, [accountQuery.isFetched]);
 
@@ -65,13 +68,13 @@ const AccountSettings = () => {
                         />
                         <Select
                             searchable
-                            data={Object.entries(currencies).map(([key, value]) => ({
-                                value: value,
-                                label: key,
-                            }))}
+                            data={[{
+                                value: 'NGN',
+                                label: 'Nigerian Naira',
+                            }]}
                             {...form.getInputProps('currency_code')}
                             label={t`Currency`}
-                            placeholder={t`EUR`}
+                            placeholder={t`Nigerian Naira`}
                             description={t`The default currency for your events.`}
                         />
                         <Select
@@ -80,7 +83,7 @@ const AccountSettings = () => {
                             data={timezones}
                             {...form.getInputProps('timezone')}
                             label={t`Timezone`}
-                            placeholder={t`UTC`}
+                            placeholder={t`Africa/Lagos`}
                             description={t`The default timezone for your events.`}
                         />
 

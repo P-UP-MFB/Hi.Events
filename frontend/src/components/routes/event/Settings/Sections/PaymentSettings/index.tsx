@@ -81,9 +81,9 @@ export const PaymentAndInvoicingSettings = () => {
 
     const paymentOptions = [
         {
-            value: "STRIPE",
-            label: t`Stripe`,
-            description: t`Accept credit card payments with Stripe`
+            value: "P-UP BaaSey",
+            label: t`P-UP BaaSey`,
+            description: t`Accept credit card payments with P-UP BaaSey`
         },
         {
             value: "OFFLINE",
