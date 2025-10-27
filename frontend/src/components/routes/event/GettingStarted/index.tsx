@@ -151,7 +151,7 @@ const GettingStarted = () => {
                         </p>
                         {!account?.stripe_connect_setup_complete && (
                             <Button variant={'light'} component={NavLink} to={'/account/payment'}>
-                                {t`Connect with Stripe`}
+                                {t`Connect with BaaSey`}
                             </Button>)
                         }
                     </Card>

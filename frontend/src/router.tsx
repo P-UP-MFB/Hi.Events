@@ -6,32 +6,29 @@ import { publicEventRouteLoader } from "./routeLoaders/publicEventRouteLoader.ts
 import { publicOrganizerRouteLoader } from "./routeLoaders/publicOrganizerRouteLoader.ts";
 
 const Root = () => {
-    const [redirectPath, setRedirectPath] = useState<string | null>(null);
-    const me = useGetMe();
-
-    useEffect(() => {
-        if (me.isFetched) {
-            setRedirectPath(me.isSuccess ? "/manage/events" : "/auth/login");
-        }
-    }, [me.isFetched]);
-
-    if (redirectPath) {
-        return <Navigate to={redirectPath} replace={true}/>;
-    }
+    return <Navigate to="/landing" replace={true}/>;
 };
-
-// const Root = () => {
-//     const me = useGetMe();
-
-//     if (!me.isFetched) return null;
-
-//     return <Navigate to={me.isSuccess ? "/manage/events" : "/welcome"} replace />;
-// };
 
 export const router: RouteObject[] = [
     {
         path: "",
         element: <Root />,
+        errorElement: <ErrorPage />
+    },
+    {
+        path: "landing",
+        async lazy() {
+            const LandingPage = await import("./components/routes/landing");
+            return { Component: LandingPage.default };
+        },
+        errorElement: <ErrorPage />
+    },
+    {
+        path: "about",
+        async lazy() {
+            const AboutPage = await import("./components/routes/about");
+            return { Component: AboutPage.default };
+        },
         errorElement: <ErrorPage />
     },
     {

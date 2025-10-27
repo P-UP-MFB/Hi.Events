@@ -126,7 +126,7 @@ class StripePaymentIntentCreationService
         if ($paymentIntentDTO->account->getStripeAccountId() === null) {
             $this->logger->error(
                 'Stripe Connect account not found for the event organizer, payment intent creation failed.
-                You will need to connect your Stripe account to receive payments.',
+                You will need to connect your BaaSey account to receive payments.',
                 ['paymentIntentDTO' => $paymentIntentDTO->toArray(['account'])]
             );
 

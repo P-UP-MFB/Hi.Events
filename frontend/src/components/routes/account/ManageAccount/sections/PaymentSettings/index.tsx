@@ -146,12 +146,12 @@ const ConnectStatus = ({account}: { account: Account }) => {
                         </ThemeIcon>
                         <Text size="sm" fw={500}>
                             <b>
-                                {t`Connected to Stripe`}
+                                {t`Connected to BaaSey`}
                             </b>
                         </Text>
                     </Group>
                     <Text size="sm" c="dimmed" mb="lg">
-                        {t`Your Stripe account is connected and ready to process payments.`}
+                        {t`Your BaaSey account is connected and ready to process payments.`}
                     </Text>
                     <Group gap="xs">
                         <Anchor
@@ -160,7 +160,7 @@ const ConnectStatus = ({account}: { account: Account }) => {
                             size="sm"
                         >
                             <Group gap="xs" wrap={'nowrap'}>
-                                <Text span>{t`Go to Stripe Dashboard`}</Text>
+                                <Text span>{t`Go to BaaSey Dashboard`}</Text>
                                 <IconExternalLink size={14}/>
                             </Group>
                         </Anchor>
@@ -180,27 +180,27 @@ const ConnectStatus = ({account}: { account: Account }) => {
             ) : (
                 <>
                     <Text size="sm" c="dimmed" mb="lg">
-                        {t`To receive credit card payments, you need to connect your BaaSey account. Stripe is our payment processing partner that ensures secure transactions and timely payouts.`}
+                        {t`To receive credit card payments, you need to connect your P-UP BaaSey account. BaaSey is our payment processing partner that ensures secure transactions and timely payouts.`}
                     </Text>
                     <Group gap="md">
                         <Button
                             variant="light"
                             size="sm"
-                            leftSection={<IconBrandStripe size={20}/>}
+                            leftSection={<img src="/p-up-logo-4.svg" style={{ width: '20px', height: '20px' }} />}
                             onClick={() => {
                                 if (!stripeDetails) {
                                     setFetchStripeDetails(true);
                                     return;
                                 } else {
                                     if (typeof window !== 'undefined') {
-                                        showSuccess(t`Redirecting to Stripe...`);
+                                        showSuccess(t`Redirecting to P-UP BaaSey...`);
                                         window.location.href = String(stripeDetails?.connect_url)
                                     }
                                 }
                             }}
                         >
-                            {(!isReturningFromStripe && !account?.stripe_account_id) && t`Connect with Stripe`}
-                            {(isReturningFromStripe || account?.stripe_account_id) && t`Complete Stripe Setup`}
+                            {(!isReturningFromStripe && !account?.stripe_account_id) && t`Connect with P-UP BaaSey`}
+                            {(isReturningFromStripe || account?.stripe_account_id) && t`Complete P-UP BaaSey Setup`}
                         </Button>
                         <Group gap="xs">
                             <Anchor
@@ -209,7 +209,7 @@ const ConnectStatus = ({account}: { account: Account }) => {
                                 size="sm"
                             >
                                 <Group gap="xs">
-                                    <Text span>{t`About Stripe Connect`}</Text>
+                                    <Text span>{t`About BaaSey Connect`}</Text>
                                     <IconExternalLink size={14}/>
                                 </Group>
                             </Anchor>

@@ -455,7 +455,8 @@ const Welcome = () => {
                     </div>
                     <h1 className={classes.welcomeTitle}>
                         <Trans>
-                            Welcome to {getConfig("VITE_APP_NAME", "StageIQ")}, {userData?.first_name} 👋
+                            Welcome to StageIQ, {userData?.first_name} 👋
+                            {/* {getConfig("VITE_APP_NAME", "StageIQ")} */}
                         </Trans>
                     </h1>
                 </div>

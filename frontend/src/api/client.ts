@@ -10,6 +10,7 @@ const PREVIOUS_URL_KEY = 'previous_url';
 
 // todo - This isn't scalable, we need to better way to manage this
 const ALLOWED_UNAUTHENTICATED_PATHS = [
+    'landing',
     'auth/login',
     'accept-invitation',
     'register',

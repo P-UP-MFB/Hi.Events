@@ -165,7 +165,7 @@ const OrganizerLayout = () => {
     if (account && !account?.stripe_connect_setup_complete) {
         callouts.unshift({
             icon: <img src="/p-up-logo-4.svg" alt="BaaSey Logo" style={{ width: 20, height: 20 }} />,
-            heading: t`Connect BaaSey`,
+            heading: t`Connect P-UP BaaSey`,
             description: t`Connect your BaaSey account to accept payments for tickets and products.`,
             storageKey: `stripe-callout-dismissed`,
             customButton:
@@ -173,7 +173,7 @@ const OrganizerLayout = () => {
                     fullWidth
                     variant="white"
                     buttonIcon={<IconCreditCard size={16}/>}
-                    buttonText={t`Connect BaaSey`}
+                    buttonText={t`Connect P-UP BaaSey`}
                     className={classes.calloutButton}
                 />
         });
