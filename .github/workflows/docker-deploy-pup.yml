@@ -55,7 +55,7 @@ jobs:
           username: root
           key: ${{ secrets.DO_SSH_KEYS }}
           script: |
-            cd /root/HiEvents
+            cd /root/Hi.Events
             echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             
             docker pull ${{ env.IMAGE_NAME }}:staging-${{ github.sha }}
@@ -76,7 +76,7 @@ jobs:
           username: root
           key: ${{ secrets.DO_SSH_KEYS }}
           script: |
-            cd /root/HiEvents
+            cd /root/Hi.Events
             echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             
             docker pull ${{ env.IMAGE_NAME }}:all-in-one-${{ github.sha }}
