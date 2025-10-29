@@ -1,8 +1,10 @@
-FROM node:alpine AS node-frontend
+FROM node:20-alpine AS node-frontend
 
 WORKDIR /app/frontend
 
-RUN apk add --no-cache yarn
+RUN if ! command -v yarn >/dev/null 2>&1; then npm install -g yarn; fi
+
+
 
 COPY ./frontend/package.json ./frontend/yarn.lock ./
 
@@ -14,7 +16,13 @@ FROM serversideup/php:beta-8.3.2-fpm-alpine
 
 ENV PHP_OPCACHE_ENABLE=1
 
-RUN install-php-extensions intl
+RUN mkdir -p /etc/resolvconf/resolv.conf.d/ \
+    && echo -e "nameserver 8.8.8.8\nnameserver 8.8.4.4" > /etc/resolvconf/resolv.conf.d/base \
+    && cat /etc/resolvconf/resolv.conf.d/base > /etc/resolv.conf || true \
+    && apk update || true \
+    && install-php-extensions intl
+
+
 
 RUN apk add --no-cache nodejs yarn nginx supervisor
 
