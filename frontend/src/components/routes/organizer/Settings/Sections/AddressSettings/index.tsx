@@ -90,25 +90,25 @@ export const AddressSettings = () => {
                         <TextInput
                             {...form.getInputProps('location_details.city')}
                             label={t`City`}
-                            placeholder={t`San Francisco`}
+                            placeholder={t`Victoria Island`}
                         />
                         <TextInput
                             {...form.getInputProps('location_details.state_or_region')}
                             label={t`State or Region`}
-                            placeholder={t`California`}
+                            placeholder={t`Lagos`}
                         />
                     </InputGroup>
                     <InputGroup>
                         <TextInput
                             {...form.getInputProps('location_details.zip_or_postal_code')}
                             label={t`Zip or Postal Code`}
-                            placeholder={t`94103`}
+                            placeholder={t`10001`}
                         />
                         <Select searchable
                                 data={countries}
                                 {...form.getInputProps('location_details.country')}
                                 label={t`Country`}
-                                placeholder={t`United States`}
+                                placeholder={t`Nigeria`}
                         />
                     </InputGroup>
 
