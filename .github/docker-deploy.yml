@@ -34,7 +34,10 @@ jobs:
           context: .
           file: Dockerfile.all-in-one
           push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          tags: |
+              ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+              ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+
 
   deploy-droplet1:
     needs: build-and-push
