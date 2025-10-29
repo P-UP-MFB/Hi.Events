@@ -35,12 +35,6 @@ export const App: FC<
         dehydratedState?: unknown;
     }>
 > = (props) => {
-    const [isLoadedOnBrowser, setIsLoadedOnBrowser] = React.useState(false);
-
-    useEffect(() => {
-        setIsLoadedOnBrowser(!isSsr());
-    }, []);
-
     return (
         <React.StrictMode>
             <div
@@ -57,7 +51,7 @@ export const App: FC<
                     position: "fixed",
                     background: "#ffffff",
                     zIndex: 1000,
-                    display: isLoadedOnBrowser ? "none" : "block",
+                    display: isSsr() ? "block" : "none",
                 }}
             />
             <MantineProvider
