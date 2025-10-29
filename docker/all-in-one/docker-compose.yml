@@ -1,7 +1,8 @@
 services:
   all-in-one:
     container_name: all-in-one
-    image: ghcr.io/p-up-mfb/hi.events-all-in-one:latest
+    image: ghcr.io/p-up-mfb/hi.events:latest
+
     env_file:
       - .env
     ports:
