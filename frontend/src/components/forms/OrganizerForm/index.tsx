@@ -73,7 +73,7 @@ export const OrganizerCreateForm = ({onSuccess, onCancel}: OrganizerFormProps) =
             name: '',
             email: '',
             currency: 'NGN',
-            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            timezone: 'Africa/Lagos',
         }
     });
 

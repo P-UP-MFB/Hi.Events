@@ -26,9 +26,10 @@ export const Register = () => {
             email: '',
             password: '',
             password_confirmation: '',
-            timezone: typeof window !== 'undefined'
-                ? Intl.DateTimeFormat().resolvedOptions().timeZone
-                : 'UTC',
+            // timezone: typeof window !== 'undefined'
+            //     ? Intl.DateTimeFormat().resolvedOptions().timeZone
+            //     : 'UTC',
+            timezone: 'Africa/Lagos',
             locale: getClientLocale(),
             invite_token: '',
             currency_code: getUserCurrency(),
