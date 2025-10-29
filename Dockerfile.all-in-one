@@ -21,7 +21,8 @@ RUN apk add --no-cache nodejs yarn nginx supervisor
 COPY --from=node-frontend /app/frontend /app/frontend
 
 COPY ./backend /app/backend
-RUN mkdir -p /app/backend/bootstrap/cache \
+ RUN apk add --no-cache php83-composer \
+   && mkdir -p /app/backend/bootstrap/cache \
     && mkdir -p /app/backend/storage \
     && chown -R www-data:www-data /app/backend \
     && find /app/backend -type d -exec chmod 755 {} \; \
