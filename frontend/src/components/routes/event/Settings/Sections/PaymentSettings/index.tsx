@@ -83,7 +83,7 @@ export const PaymentAndInvoicingSettings = () => {
         {
             value: "P-UP BaaSey",
             label: t`P-UP BaaSey`,
-            description: t`Accept card payments with P-UP BaaSey`
+            description: t`Accept payments with P-UP BaaSey`
         },
         {
             value: "OFFLINE",
