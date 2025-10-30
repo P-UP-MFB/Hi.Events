@@ -95,7 +95,7 @@ const Settings = () => {
                         <TextInput
                             {...form.getInputProps('phone')}
                             label={t`Phone`}
-                            placeholder={t`+1 234 567 890`}
+                            placeholder={t`+234 900 123 4567`}
                         />
                         <TextInput
                             {...form.getInputProps('website')}
