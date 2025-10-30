@@ -32,6 +32,22 @@ export const router: RouteObject[] = [
         errorElement: <ErrorPage />
     },
     {
+        path: "privacy-policy",
+        async lazy() {
+            const PrivacyPolicyPage = await import("./components/routes/privacy-policy");
+            return { Component: PrivacyPolicyPage.default };
+        },
+        errorElement: <ErrorPage />
+    },
+    {
+        path: "terms-of-service",
+        async lazy() {
+            const TermsOfServicePage = await import("./components/routes/terms-of-service");
+            return { Component: TermsOfServicePage.default };
+        },
+        errorElement: <ErrorPage />
+    },
+    {
         path: "auth",
         async lazy() {
             const AuthLayout = await import("./components/layouts/AuthLayout");

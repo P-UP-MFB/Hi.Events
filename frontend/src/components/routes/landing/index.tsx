@@ -48,7 +48,12 @@ const Header = ({ onCreateEventClick, onTicketClick, navigate }: { onCreateEvent
     >
       <Container size="xl" style={{ maxWidth: '1280px' }}>
         <Group justify="space-between" align="center" style={{ width: '100%' }}>
-          <Group align="center" gap="sm">
+          <Group 
+            align="center" 
+            gap="sm" 
+            onClick={() => navigate('/')}
+            style={{ cursor: 'pointer' }}
+          >
             <Image src='/p-up-logo-4-white.svg' alt='logo' w={30} h={35} />
             <Text
               size="xl"
@@ -1020,7 +1025,17 @@ const BlogSection = () => {
 };
 
 // Footer Component
-const Footer = ({ navigate }: { navigate: (path: string) => void }) => (
+const Footer = ({ 
+  navigate, 
+  onCreateAndSetUpClick, 
+  onSellTicketsClick, 
+  onOnlineEventsClick 
+}: { 
+  navigate: (path: string) => void;
+  onCreateAndSetUpClick: () => void;
+  onSellTicketsClick: () => void;
+  onOnlineEventsClick: () => void;
+}) => (
   <Box
     component="footer"
     style={{
@@ -1118,16 +1133,46 @@ const Footer = ({ navigate }: { navigate: (path: string) => void }) => (
         <Grid.Col span={{ base: 12, sm: 6, lg: 4 }}>
           <Text fw={700} mb="md">Plan Events</Text>
           <Stack gap="xs">
-            <Anchor href="#" fw={600} c="#c4b5fd" size="sm" style={{ '&:hover': { color: 'white' } }}>
+            <Anchor 
+              href="#" 
+              fw={600} 
+              c="#c4b5fd" 
+              size="sm" 
+              style={{ '&:hover': { color: 'white' } }}
+              onClick={(e) => {
+                e.preventDefault();
+                onCreateAndSetUpClick();
+              }}
+            >
               Create and Set Up
             </Anchor>
-            <Anchor href="#" fw={600} c="#c4b5fd" size="sm" style={{ '&:hover': { color: 'white' } }}>
+            <Anchor 
+              href="#" 
+              fw={600} 
+              c="#c4b5fd" 
+              size="sm" 
+              style={{ '&:hover': { color: 'white' } }}
+              onClick={(e) => {
+                e.preventDefault();
+                onSellTicketsClick();
+              }}
+            >
               Sell Tickets
             </Anchor>
-            <Anchor href="#" fw={600} c="#c4b5fd" size="sm" style={{ '&:hover': { color: 'white' } }}>
+            {/* <Anchor href="#" fw={600} c="#c4b5fd" size="sm" style={{ '&:hover': { color: 'white' } }}>
               Online RSVP
-            </Anchor>
-            <Anchor href="#" fw={600} c="#c4b5fd" size="sm" style={{ '&:hover': { color: 'white' } }}>
+            </Anchor> */}
+            <Anchor 
+              href="#" 
+              fw={600} 
+              c="#c4b5fd" 
+              size="sm" 
+              style={{ '&:hover': { color: 'white' } }}
+              onClick={(e) => {
+                e.preventDefault();
+                onOnlineEventsClick();
+              }}
+            >
               Online Events
             </Anchor>
           </Stack>
@@ -1158,10 +1203,32 @@ const Footer = ({ navigate }: { navigate: (path: string) => void }) => (
             <Anchor href="#" fw={600} c="#c4b5fd" size="sm" style={{ '&:hover': { color: 'white' } }}>
               How it Works
             </Anchor>
-            <Anchor href="#" fw={600} c="#c4b5fd" size="sm" style={{ '&:hover': { color: 'white' } }}>
+            <Anchor 
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/privacy-policy');
+                window.scrollTo(0, 0);
+              }}
+              c="#c4b5fd" 
+              size="sm" 
+              fw={600} 
+              style={{ '&:hover': { color: 'white' } }}
+            >
               Privacy
             </Anchor>
-            <Anchor href="#" fw={600} c="#c4b5fd" size="sm" style={{ '&:hover': { color: 'white' } }}>
+            <Anchor 
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/terms-of-service');
+                window.scrollTo(0, 0);
+              }}
+              fw={600} 
+              c="#c4b5fd" 
+              size="sm" 
+              style={{ '&:hover': { color: 'white' } }}
+            >
               Terms
             </Anchor>
           </Stack>
@@ -1334,6 +1401,22 @@ export default function App() {
   };
 
   const handleTicketClick = () => {
+    const upcomingEventsSection = document.getElementById('upcoming-events');
+    if (upcomingEventsSection) {
+      upcomingEventsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Footer navigation handlers
+  const handleCreateAndSetUpClick = () => {
+    navigate('/auth/login');
+  };
+
+  const handleSellTicketsClick = () => {
+    navigate('/auth/login');
+  };
+
+  const handleOnlineEventsClick = () => {
     const upcomingEventsSection = document.getElementById('upcoming-events');
     if (upcomingEventsSection) {
       upcomingEventsSection.scrollIntoView({ behavior: 'smooth' });
@@ -1640,10 +1723,17 @@ export default function App() {
         </div>
       )}
 
-      <CreateEventSection onCreateEventClick={handleCreateEventClick} />
+      <div id="create-event-section">
+        <CreateEventSection onCreateEventClick={handleCreateEventClick} />
+      </div>
       <BrandsSection />
       {/* <BlogSection /> */}
-      <Footer navigate={navigate} />
+      <Footer 
+        navigate={navigate} 
+        onCreateAndSetUpClick={handleCreateAndSetUpClick}
+        onSellTicketsClick={handleSellTicketsClick}
+        onOnlineEventsClick={handleOnlineEventsClick}
+      />
     </div>
   );
 }
