@@ -858,7 +858,7 @@ const BrandsSection = () => (
           style={{ flexWrap: 'wrap', flexDirection: 'row' }}
         >
           <Image src="/spotify.svg" alt="Spotify" style={{ width: 'auto', flexShrink: 0 }} />
-          <Image src="/google.svg" alt="Google" style={{ width: 'auto', flexShrink: 0 }} />
+          <Image src="/boxmall-sol-FINAL.png" alt="Google" style={{ width: 'auto', flexShrink: 0, height: '60px' }} />
           <Image src="/p-up-logo-4.svg" alt="Stripe" style={{ width: 'auto', flexShrink: 0, height: '60px' }} />
           {/* <Image src="/youtube.svg" alt="YouTube" style={{ width: 'auto', flexShrink: 0 }} />
           <Image src="/microsoft.svg" alt="Microsoft" style={{ width: 'auto', flexShrink: 0 }} /> */}
@@ -1152,9 +1152,9 @@ const Footer = ({ navigate }: { navigate: (path: string) => void }) => (
             <Anchor href="#" c="#c4b5fd" size="sm" fw={600} style={{ '&:hover': { color: 'white' } }}>
               Contact Us
             </Anchor>
-            <Anchor href="#" fw={600} c="#c4b5fd" size="sm" style={{ '&:hover': { color: 'white' } }}>
+            {/* <Anchor href="#" fw={600} c="#c4b5fd" size="sm" style={{ '&:hover': { color: 'white' } }}>
               Help Center
-            </Anchor>
+            </Anchor> */}
             <Anchor href="#" fw={600} c="#c4b5fd" size="sm" style={{ '&:hover': { color: 'white' } }}>
               How it Works
             </Anchor>
