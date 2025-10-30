@@ -82,7 +82,7 @@ export const LocationSettings = () => {
         <Card>
             <HeadingWithDescription
                 heading={t`Location`}
-                description={t`Event location & venue details`}
+                description={t`Event location & venue details`} 
             />
             <form onSubmit={form.onSubmit(handleSubmit)}>
                 <fieldset disabled={eventSettingsQuery.isLoading || updateMutation.isPending}>
