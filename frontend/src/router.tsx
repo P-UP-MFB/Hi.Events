@@ -5,18 +5,9 @@ import { useGetMe } from "./queries/useGetMe.ts";
 import { publicEventRouteLoader } from "./routeLoaders/publicEventRouteLoader.ts";
 import { publicOrganizerRouteLoader } from "./routeLoaders/publicOrganizerRouteLoader.ts";
 
-const Root = () => {
-    return <Navigate to="/landing" replace={true}/>;
-};
-
 export const router: RouteObject[] = [
     {
         path: "",
-        element: <Root />,
-        errorElement: <ErrorPage />
-    },
-    {
-        path: "landing",
         async lazy() {
             const LandingPage = await import("./components/routes/landing");
             return { Component: LandingPage.default };

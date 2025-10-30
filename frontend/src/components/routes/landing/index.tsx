@@ -1200,9 +1200,9 @@ const Footer = ({
             {/* <Anchor href="#" fw={600} c="#c4b5fd" size="sm" style={{ '&:hover': { color: 'white' } }}>
               Help Center
             </Anchor> */}
-            <Anchor href="#" fw={600} c="#c4b5fd" size="sm" style={{ '&:hover': { color: 'white' } }}>
+            {/* <Anchor href="#" fw={600} c="#c4b5fd" size="sm" style={{ '&:hover': { color: 'white' } }}>
               How it Works
-            </Anchor>
+            </Anchor> */}
             <Anchor 
               href="#"
               onClick={(e) => {

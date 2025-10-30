@@ -93,7 +93,7 @@ const Header = () => {
                 style={{ textDecoration: 'none', '&:hover': { color: '#c4b5fd' } }}
                 onClick={(e) => {
                   e.preventDefault();
-                  navigate('/landing');
+                  navigate('/');
                 }}
               >
                 Home
@@ -141,7 +141,7 @@ const Header = () => {
                   style={{ textDecoration: 'none' }}
                   onClick={(e) => {
                     e.preventDefault();
-                    navigate('/landing');
+                    navigate('/');
                     setMobileMenuOpen(false);
                   }}
                 >
@@ -800,7 +800,7 @@ const CTASection = () => {
                 backdropFilter: 'blur(10px)',
                 transition: 'all 0.3s ease'
               }}
-              onClick={() => navigate('/landing')}
+              onClick={() => navigate('/')}
             >
               Learn More
             </Button> */}
