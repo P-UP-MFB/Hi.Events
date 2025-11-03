@@ -8,26 +8,27 @@ const BASE_URL = isSsr()
 const LOGIN_PATH = "/auth/login";
 const PREVIOUS_URL_KEY = 'previous_url';
 
-// todo - This isn't scalable, we need to better way to manage this
-const ALLOWED_UNAUTHENTICATED_PATHS = [
+// Public routes: exact matches and prefixes. Avoid broad substring checks.
+const PUBLIC_PATHS_EXACT = [
     '/',
-    '/landing/',
-    'auth/login',
     '/privacy-policy',
     '/terms-of-service',
-    'accept-invitation',
-    'register',
-    'forgot-password',
-    'auth',
-    'account/payment',
-    'checkout',
+    '/auth/login',
+    '/auth/register',
+    '/auth/forgot-password',
+];
+
+const PUBLIC_PATH_PREFIXES = [
+    '/auth/accept-invitation',
+    '/checkout',
     '/event/',
-    'print',
     '/order/',
-    'widget',
+    '/widget',
     '/product/',
-    'check-in',
-    '/events/'
+    '/check-in',
+    '/events/',
+    '/print',
+    '/account/payment',
 ];
 
 export const api = axios.create({
@@ -42,10 +43,22 @@ api.interceptors.response.use(
     (response) => response,
     (error) => {
         const { status } = error.response;
-        const currentPath = window?.location.pathname;
-        const isAllowedUnauthenticatedPath = ALLOWED_UNAUTHENTICATED_PATHS.some(path => currentPath.includes(path));
+        const requestUrl = error?.config?.url || '';
+        const currentPath = window?.location?.pathname || '/';
+        const isPublicExact = PUBLIC_PATHS_EXACT.includes(currentPath);
+        const isPublicPrefix = PUBLIC_PATH_PREFIXES.some(prefix => currentPath.startsWith(prefix));
+        const isAllowedUnauthenticatedPath = isPublicExact || isPublicPrefix;
         const isManageEventPath = currentPath.startsWith('/manage/event/');
         const isAuthError = status === 401 || status === 403;
+        const isMeEndpoint = requestUrl.includes('auth/me');
+
+        // If the "get me" call fails, prefer sending users to the public landing page.
+        if (isAuthError && isMeEndpoint) {
+            if (currentPath !== '/') {
+                window?.location?.replace('/');
+            }
+            return Promise.reject(error);
+        }
 
         if (isAuthError && (!isAllowedUnauthenticatedPath || isManageEventPath)) {
             // Store the current URL before redirecting to the login page

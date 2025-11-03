@@ -1027,12 +1027,12 @@ const BlogSection = () => {
 // Footer Component
 const Footer = ({ 
   navigate, 
-  onCreateAndSetUpClick, 
+  // onCreateAndSetUpClick, 
   onSellTicketsClick, 
   onOnlineEventsClick 
 }: { 
   navigate: (path: string) => void;
-  onCreateAndSetUpClick: () => void;
+  // onCreateAndSetUpClick: () => void;
   onSellTicketsClick: () => void;
   onOnlineEventsClick: () => void;
 }) => (
@@ -1133,7 +1133,7 @@ const Footer = ({
         <Grid.Col span={{ base: 12, sm: 6, lg: 4 }}>
           <Text fw={700} mb="md">Plan Events</Text>
           <Stack gap="xs">
-            <Anchor 
+            {/* <Anchor 
               href="#" 
               fw={600} 
               c="#c4b5fd" 
@@ -1145,7 +1145,7 @@ const Footer = ({
               }}
             >
               Create and Set Up
-            </Anchor>
+            </Anchor> */}
             <Anchor 
               href="#" 
               fw={600} 
@@ -1179,7 +1179,7 @@ const Footer = ({
         </Grid.Col>
 
         <Grid.Col span={{ base: 12, sm: 6, lg: 4 }}>
-          <Text fw={700} mb="md">Eventick</Text>
+          <Text fw={700} mb="md">Company</Text>
           <Stack gap="xs">
             <Anchor 
               href="#"
@@ -1730,7 +1730,7 @@ export default function App() {
       {/* <BlogSection /> */}
       <Footer 
         navigate={navigate} 
-        onCreateAndSetUpClick={handleCreateAndSetUpClick}
+        // onCreateAndSetUpClick={handleCreateAndSetUpClick}
         onSellTicketsClick={handleSellTicketsClick}
         onOnlineEventsClick={handleOnlineEventsClick}
       />
