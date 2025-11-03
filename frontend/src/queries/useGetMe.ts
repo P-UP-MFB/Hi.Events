@@ -4,7 +4,7 @@ import {userClient} from "../api/user.client.ts";
 
 export const GET_ME_QUERY_KEY = 'getGetMe';
 
-export const useGetMe = () => {
+export const useGetMe = (options?: { enabled?: boolean }) => {
     return useQuery<User>({
         queryKey: [GET_ME_QUERY_KEY],
 
@@ -13,6 +13,7 @@ export const useGetMe = () => {
             return data;
         },
 
-        retry: false
+        retry: false,
+        enabled: options?.enabled ?? true
     });
 };

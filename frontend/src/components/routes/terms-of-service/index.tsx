@@ -467,8 +467,8 @@ const TermsOfService: React.FC = () => {
           <Title order={1} size="h1" mb="md">StageIQ Ltd. Terms of Service</Title>
           <Text c="dimmed">
             These Terms of Service govern your use of the website located at{" "}
-            <Anchor href="https://stageiq.com" target="_blank">
-              https://stageiq.com
+            <Anchor href="https://pup.finance" target="_blank">
+              https://pup.finance
             </Anchor>{" "}
             and any related services provided by StageIQ Ltd.
           </Text>
@@ -580,10 +580,10 @@ const TermsOfService: React.FC = () => {
                 <br />
                 Email:{" "}
                 <Anchor href="mailto:legal@stageiq.com">
-                  legal@stageiq.com
+                  support@pup.finance
                 </Anchor>
                 <br />
-                Address: Lagos, Nigeria
+                Address: Victoria Island, Lagos, Nigeria
               </Text>
             </Paper>
           </div>

@@ -1,6 +1,6 @@
 import axios from "axios";
-import {isSsr} from "../utilites/helpers.ts";
-import {getConfig} from "../utilites/config.ts";
+import { isSsr } from "../utilites/helpers.ts";
+import { getConfig } from "../utilites/config.ts";
 
 const BASE_URL = isSsr()
     ? getConfig('VITE_API_URL_SERVER')
@@ -10,8 +10,11 @@ const PREVIOUS_URL_KEY = 'previous_url';
 
 // todo - This isn't scalable, we need to better way to manage this
 const ALLOWED_UNAUTHENTICATED_PATHS = [
-    'landing',
+    '/',
+    '/landing/',
     'auth/login',
+    '/privacy-policy',
+    '/terms-of-service',
     'accept-invitation',
     'register',
     'forgot-password',

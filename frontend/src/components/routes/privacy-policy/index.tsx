@@ -386,8 +386,8 @@ const PrivacyPolicy: React.FC = () => {
             Regulation (NDPR) and any other applicable data protection laws. This
             policy outlines how we collect, use, and protect your personal
             information when you visit our website,{" "}
-            <Anchor href="https://stageiq.com" target="_blank">
-              https://stageiq.com
+            <Anchor href="https://pup.finance" target="_blank">
+              https://pup.finance
             </Anchor>
             , and any other platforms we own or operate.
           </Text>
@@ -552,7 +552,7 @@ const PrivacyPolicy: React.FC = () => {
                 <br />
                 Email:{" "}
                 <Anchor href="mailto:privacy@stageiq.com">
-                  privacy@stageiq.com
+                 support@pup.finance
                 </Anchor>
                 <br />
                 Address: Lagos, Nigeria
