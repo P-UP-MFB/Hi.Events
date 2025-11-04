@@ -12,6 +12,7 @@ use HiEvents\Models\Event;
 use HiEvents\Repository\Interfaces\EventRepositoryInterface;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection; 
 
 class EventRepository extends BaseRepository implements EventRepositoryInterface
 {
@@ -82,5 +83,25 @@ class EventRepository extends BaseRepository implements EventRepositoryInterface
             limit: $params->per_page,
             page: $params->page,
         );
+    }
+
+    // ✅ ADD THIS NEW METHOD
+    public function findPublicEvents(int $limit = 9): Collection
+    {
+        $where = [
+            static function (Builder $builder) {
+                $builder->where(EventDomainObjectAbstract::STATUS, EventStatus::LIVE->name);
+            }
+        ];
+
+        $this->model = $this->model->orderBy(EventDomainObjectAbstract::START_DATE, 'desc');
+
+        $paginator = $this->paginateWhere(
+            where: $where,
+            limit: $limit,
+            page: 1,
+        );
+
+        return collect($paginator->items());
     }
 }

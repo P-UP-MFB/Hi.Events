@@ -48,9 +48,9 @@ const Header = ({ onCreateEventClick, onTicketClick, navigate }: { onCreateEvent
     >
       <Container size="xl" style={{ maxWidth: '1280px' }}>
         <Group justify="space-between" align="center" style={{ width: '100%' }}>
-          <Group 
-            align="center" 
-            gap="sm" 
+          <Group
+            align="center"
+            gap="sm"
             onClick={() => navigate('/')}
             style={{ cursor: 'pointer' }}
           >
@@ -84,13 +84,13 @@ const Header = ({ onCreateEventClick, onTicketClick, navigate }: { onCreateEvent
           <Box visibleFrom="md" style={{ marginLeft: 'auto' }}>
             <Group gap="md" align="center" justify="flex-end">
               <Anchor href="#" c="white" fw={600} style={{ textDecoration: 'none', '&:hover': { color: '#c4b5fd' } }}>Home</Anchor>
-              <Anchor 
+              <Anchor
                 component="button"
                 onClick={() => navigate('/about')}
-                c="white" 
-                fw={600} 
-                style={{ 
-                  textDecoration: 'none', 
+                c="white"
+                fw={600}
+                style={{
+                  textDecoration: 'none',
                   '&:hover': { color: '#c4b5fd' },
                   background: 'none',
                   border: 'none',
@@ -100,10 +100,10 @@ const Header = ({ onCreateEventClick, onTicketClick, navigate }: { onCreateEvent
                 About
               </Anchor>
               {/* <Anchor href="#" fw={600} c="white" style={{ textDecoration: 'none', '&:hover': { color: '#c4b5fd' } }}>Speakers</Anchor> */}
-              <Anchor 
-                href="#" 
-                fw={600} 
-                c="white" 
+              <Anchor
+                href="#"
+                fw={600}
+                c="white"
                 style={{ textDecoration: 'none', '&:hover': { color: '#c4b5fd' } }}
                 onClick={(e) => {
                   e.preventDefault();
@@ -152,19 +152,19 @@ const Header = ({ onCreateEventClick, onTicketClick, navigate }: { onCreateEvent
                 <Anchor href="#" c="white" style={{ textDecoration: 'none', '&:hover': { color: '#c4b5fd' } }}>Home</Anchor>
                 <Anchor href="#" c="white" style={{ textDecoration: 'none', '&:hover': { color: '#c4b5fd' } }}>Speakers</Anchor>
                 <Anchor href="#" c="white" style={{ textDecoration: 'none', '&:hover': { color: '#c4b5fd' } }}>Ticket</Anchor>
-                <Anchor 
-                href="#" 
-                c="white" 
-                fw={600} 
-                style={{ textDecoration: 'none', '&:hover': { color: '#c4b5fd' } }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate('/about');
-                }}
-              >
-                About
-              </Anchor>
-              <Anchor href="#" c="white" fw={600} style={{ textDecoration: 'none', '&:hover': { color: '#c4b5fd' } }}>Contact</Anchor>
+                <Anchor
+                  href="#"
+                  c="white"
+                  fw={600}
+                  style={{ textDecoration: 'none', '&:hover': { color: '#c4b5fd' } }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate('/about');
+                  }}
+                >
+                  About
+                </Anchor>
+                <Anchor href="#" c="white" fw={600} style={{ textDecoration: 'none', '&:hover': { color: '#c4b5fd' } }}>Contact</Anchor>
                 <Button
                   variant="outline"
                   c="white"
@@ -527,7 +527,7 @@ const UpcomingEvents = ({
               }}
             />
           </Group>
-          
+
           {/* Mobile filters */}
           <Stack gap="xs" hiddenFrom="sm" w="100%">
             <Group gap="xs">
@@ -1025,12 +1025,12 @@ const BlogSection = () => {
 };
 
 // Footer Component
-const Footer = ({ 
-  navigate, 
+const Footer = ({
+  navigate,
   // onCreateAndSetUpClick, 
-  onSellTicketsClick, 
-  onOnlineEventsClick 
-}: { 
+  onSellTicketsClick,
+  onOnlineEventsClick
+}: {
   navigate: (path: string) => void;
   // onCreateAndSetUpClick: () => void;
   onSellTicketsClick: () => void;
@@ -1146,11 +1146,11 @@ const Footer = ({
             >
               Create and Set Up
             </Anchor> */}
-            <Anchor 
-              href="#" 
-              fw={600} 
-              c="#c4b5fd" 
-              size="sm" 
+            <Anchor
+              href="#"
+              fw={600}
+              c="#c4b5fd"
+              size="sm"
               style={{ '&:hover': { color: 'white' } }}
               onClick={(e) => {
                 e.preventDefault();
@@ -1162,11 +1162,11 @@ const Footer = ({
             {/* <Anchor href="#" fw={600} c="#c4b5fd" size="sm" style={{ '&:hover': { color: 'white' } }}>
               Online RSVP
             </Anchor> */}
-            <Anchor 
-              href="#" 
-              fw={600} 
-              c="#c4b5fd" 
-              size="sm" 
+            <Anchor
+              href="#"
+              fw={600}
+              c="#c4b5fd"
+              size="sm"
               style={{ '&:hover': { color: 'white' } }}
               onClick={(e) => {
                 e.preventDefault();
@@ -1181,15 +1181,15 @@ const Footer = ({
         <Grid.Col span={{ base: 12, sm: 6, lg: 4 }}>
           <Text fw={700} mb="md">Company</Text>
           <Stack gap="xs">
-            <Anchor 
+            <Anchor
               href="#"
               onClick={(e) => {
                 e.preventDefault();
                 navigate('/about');
               }}
-              c="#c4b5fd" 
-              size="sm" 
-              fw={600} 
+              c="#c4b5fd"
+              size="sm"
+              fw={600}
               style={{ '&:hover': { color: 'white' } }}
             >
               About Us
@@ -1203,30 +1203,30 @@ const Footer = ({
             {/* <Anchor href="#" fw={600} c="#c4b5fd" size="sm" style={{ '&:hover': { color: 'white' } }}>
               How it Works
             </Anchor> */}
-            <Anchor 
+            <Anchor
               href="#"
               onClick={(e) => {
                 e.preventDefault();
                 navigate('/privacy-policy');
                 window.scrollTo(0, 0);
               }}
-              c="#c4b5fd" 
-              size="sm" 
-              fw={600} 
+              c="#c4b5fd"
+              size="sm"
+              fw={600}
               style={{ '&:hover': { color: 'white' } }}
             >
               Privacy
             </Anchor>
-            <Anchor 
+            <Anchor
               href="#"
               onClick={(e) => {
                 e.preventDefault();
                 navigate('/terms-of-service');
                 window.scrollTo(0, 0);
               }}
-              fw={600} 
-              c="#c4b5fd" 
-              size="sm" 
+              fw={600}
+              c="#c4b5fd"
+              size="sm"
               style={{ '&:hover': { color: 'white' } }}
             >
               Terms
@@ -1319,71 +1319,71 @@ const transformEventToCard = (event: Event) => {
 
 // Fallback events data
 const FALLBACK_EVENTS = [
-  { 
-    date: '14', 
-    month: 'APR', 
-    title: 'Wonder Girls 2010 Wonder Girls World Tour San Francisco', 
-    description: "We'll get you directly seated and inside for you to enjoy the show.", 
+  {
+    date: '14',
+    month: 'APR',
+    title: 'Wonder Girls 2010 Wonder Girls World Tour San Francisco',
+    description: "We'll get you directly seated and inside for you to enjoy the show.",
     image: '/event1.svg',
     location: 'San Francisco',
     category: 'Music',
     eventType: 'Concert'
-  }, 
-  { 
-    date: '20', 
-    month: 'AUG', 
-    title: 'JYJ 2011 JYJ Worldwide Concert Barcelona', 
-    description: 'Directly seated and inside for you to enjoy the show.', 
+  },
+  {
+    date: '20',
+    month: 'AUG',
+    title: 'JYJ 2011 JYJ Worldwide Concert Barcelona',
+    description: 'Directly seated and inside for you to enjoy the show.',
     image: '/event2.svg',
     location: 'Barcelona',
     category: 'Music',
     eventType: 'Concert'
-  }, 
-  { 
-    date: '18', 
-    month: 'SEP', 
-    title: "2011 Super Junior SM Town Live '10 World Tour New York City", 
-    description: 'Directly seated and inside for you to enjoy the show.', 
+  },
+  {
+    date: '18',
+    month: 'SEP',
+    title: "2011 Super Junior SM Town Live '10 World Tour New York City",
+    description: 'Directly seated and inside for you to enjoy the show.',
     image: '/event3.svg',
     location: 'New York City',
     category: 'Music',
     eventType: 'Concert'
-  }, 
-  { 
-    date: '14', 
-    month: 'APR', 
-    title: 'Wonder Girls 2010 Wonder Girls World Tour San Francisco', 
-    description: "We'll get you directly seated and inside for you to enjoy the show.", 
+  },
+  {
+    date: '14',
+    month: 'APR',
+    title: 'Wonder Girls 2010 Wonder Girls World Tour San Francisco',
+    description: "We'll get you directly seated and inside for you to enjoy the show.",
     image: '/event4.svg',
     location: 'San Francisco',
     category: 'Music',
     eventType: 'Concert'
-  }, 
-  { 
-    date: '20', 
-    month: 'AUG', 
-    title: 'JYJ 2011 JYJ Worldwide Concert Barcelona', 
-    description: 'Directly seated and inside for you to enjoy the show.', 
+  },
+  {
+    date: '20',
+    month: 'AUG',
+    title: 'JYJ 2011 JYJ Worldwide Concert Barcelona',
+    description: 'Directly seated and inside for you to enjoy the show.',
     image: '/event5.svg',
     location: 'Barcelona',
     category: 'Music',
     eventType: 'Concert'
-  }, 
-  { 
-    date: '18', 
-    month: 'SEP', 
-    title: "2011 Super Junior SM Town Live '10 World Tour New York City", 
-    description: 'Directly seated and inside for you to enjoy the show.', 
+  },
+  {
+    date: '18',
+    month: 'SEP',
+    title: "2011 Super Junior SM Town Live '10 World Tour New York City",
+    description: 'Directly seated and inside for you to enjoy the show.',
     image: '/event6.svg',
     location: 'New York City',
     category: 'Music',
     eventType: 'Concert'
-  } 
+  }
 ];
 
 export default function App() {
   const navigate = useNavigate();
-  
+
   // Search state management
   const [searchQuery, setSearchQuery] = useState('');
   const [locationFilter, setLocationFilter] = useState('');
@@ -1391,7 +1391,7 @@ export default function App() {
   const [categoryFilter, setCategoryFilter] = useState('');
   const [eventTypeFilter, setEventTypeFilter] = useState('');
   const [weekdayFilter, setWeekdayFilter] = useState('');
-  
+
   // Fallback state management
   const [showFallback, setShowFallback] = useState(false);
 
@@ -1432,7 +1432,7 @@ export default function App() {
   // Handle fallback timeout when there's an error
   useEffect(() => {
     let timeout: NodeJS.Timeout;
-    
+
     if (error && !showFallback) {
       timeout = setTimeout(() => {
         setShowFallback(true);
@@ -1441,7 +1441,7 @@ export default function App() {
       // Reset fallback when there's no error
       setShowFallback(false);
     }
-    
+
     return () => {
       if (timeout) {
         clearTimeout(timeout);
@@ -1457,7 +1457,7 @@ export default function App() {
     if (showFallback) {
       // Handle fallback events
       let filteredFallbackEvents = FALLBACK_EVENTS;
-    
+
       // Apply search query filter for fallback events
       if (searchQuery.trim()) {
         const query = searchQuery.toLowerCase();
@@ -1466,29 +1466,29 @@ export default function App() {
           event.description?.toLowerCase().includes(query)
         );
       }
-    
+
       // Apply location filter for fallback events
       if (locationFilter && locationFilter !== 'Any Location') {
         filteredFallbackEvents = filteredFallbackEvents.filter(event =>
           event.location?.toLowerCase().includes(locationFilter.toLowerCase())
         );
       }
-    
+
       // Apply category filter for fallback events
       if (categoryFilter && categoryFilter !== 'Any Category') {
         filteredFallbackEvents = filteredFallbackEvents.filter(event =>
           event.category?.toLowerCase() === categoryFilter.toLowerCase()
         );
       }
-    
+
       return filteredFallbackEvents;
     }
-  
+
     // Handle API events
     if (!eventsResponse?.data) return [];
-  
+
     let filteredEvents = eventsResponse.data;
-  
+
     // Apply search query filter for API events
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
@@ -1498,7 +1498,7 @@ export default function App() {
         event.organizer?.name?.toLowerCase().includes(query)
       );
     }
-  
+
     // Apply location filter for API events
     if (locationFilter && locationFilter !== 'Any Location') {
       filteredEvents = filteredEvents.filter(event =>
@@ -1506,20 +1506,20 @@ export default function App() {
         event.location_details?.address_line_1?.toLowerCase().includes(locationFilter.toLowerCase())
       );
     }
-  
+
     // Apply category filter for API events
     if (categoryFilter && categoryFilter !== 'Any Category') {
       filteredEvents = filteredEvents.filter(event =>
         event.category?.toLowerCase() === categoryFilter.toLowerCase()
       );
     }
-  
+
     // Apply date filter for API events
     if (dateFilter && dateFilter !== '') {
       const now = new Date();
       filteredEvents = filteredEvents.filter(event => {
         const eventDate = new Date(event.start_date);
-  
+
         switch (dateFilter) {
           case 'today':
             return eventDate.toDateString() === now.toDateString();
@@ -1541,7 +1541,7 @@ export default function App() {
         }
       });
     }
-  
+
     return filteredEvents.map(transformEventToCard);
   }, [eventsResponse?.data, searchQuery, locationFilter, categoryFilter, dateFilter, eventTypeFilter, showFallback]);
 
@@ -1728,8 +1728,8 @@ export default function App() {
       </div>
       <BrandsSection />
       {/* <BlogSection /> */}
-      <Footer 
-        navigate={navigate} 
+      <Footer
+        navigate={navigate}
         // onCreateAndSetUpClick={handleCreateAndSetUpClick}
         onSellTicketsClick={handleSellTicketsClick}
         onOnlineEventsClick={handleOnlineEventsClick}
